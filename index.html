@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title style="font-size: -6px;">GAME LOBY</title>
+<style>
+div.gallery {
+	margin: 5px;
+	border: 1px solid #ccc;
+	float: left;
+	width: 180px;
+}
+
+div.gallery:hover {
+	border: 1px solid #777;
+}
+
+div.gallery img {
+	width: 100%;
+	height: auto;
+}
+
+div.desc {
+	padding: 15px;
+	text-align: center;
+}
+</style>
+<!-- 
+       <script type="text/javaScript">
+		
+		function tx(){
+		document.write('Rebirth javascript');
+	
+	var ourRequest = new XMLHttpRequest();
+	ourRequest.open('GET', 'https://api-live.voodoodreams.com/v1/games/categories');
+	ourRequest.onload = function fx(){
+	this.ourData=JSON.parse(ourRequest.responseText);
+		console.log("first cat is: "+ ourData.categories[2].name);
+	//document.write(ourData.categories[2].name);
+	
+	};
+	ourRequest.send();
+	</script>
+}
+	 -->
+
+
+
+<!-- <script src="jquery-3.2.1.min.js">
+	$.getJSON("https://api-live.voodoodreams.com/v1/games/categories", function(result) {
+		$.each(result, function(i, field) {
+			$("div").append(field + "categories"+[2].name);
+		});
+	});
+</script>
+
+
+
+<!-- $(function(){
+ var gameCat, game;
+$.ajax({
+    url: "https://api-live.voodoodreams.com/v1/games/categories",
+	type: 'GET',
+    dataType: 'json',
+    success: function(gameCat){
+	 
+	 fx(gameCat,game);
+	
+    }
+});
+
+
+$.ajax({
+    url: "https://api-live.voodoodreams.com/v1/games",
+	type: 'GET',
+    dataType: 'json',
+    success: function(game){
+	 getGame(game);
+	
+    }
+});
+
+
+
+}); -->
+
+ -->
+
+<script src="jquery-3.2.1.min.js"></script>
+
+<script>
+
+$.getJSON("https://api-live.voodoodreams.com/v1/games/categories")
+    .then(function(gameCat) {
+        fx(gameCat);
+    })
+    .fail(function() {
+        alert("API server is down");
+    });
+	
+	
+$.getJSON("https://api-live.voodoodreams.com/v1/games")
+    .then(function(game) {
+       getGame(game);
+    });
+	
+	
+
+</script>
+</head>
+<body>
+	<header class="pg-empty-placeholder"
+		style="height: 74px;width: -43px;background-color: #f2dfdf;font-size: 35;">
+	<h2>
+		<b
+			style="font-size: 59px; line-height: 89px; color: #29344c; text-align: center; font-family: calibri;">&nbsp;
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; GAME
+			LOBY</b>
+	</h2>
+	</header>
+	<br> <br />
+	
+	<script>
+	
+	function fx (gameCat){
+	var $gallary = $('#gID1');
+	 
+	 for (var i in gameCat.categories){
+	$(document).ready(function(){
+	var divelements = $("<div id='"+gameCat.categories[i].name+"' class='gallery'> <a target='' href=''> <img ='' alt='"+gameCat.categories[i].name+"' with='' height=''></a><text><div id='gID1n' class='desc'></div> </div>  ");
+	
+	//var divelements =$("<div class='gallery'></div>")
+	//console.log("first cat is: "+ gameCat.categories[i].name);
+	
+	$("body").append(divelements);
+	})
+	
+	 }
+	 	
+    }
+	
+	 function getGame(game){
+	 for (var i in game){
+	
+	console.log("first game is: "+ i.games.name);
+	
+	 }
+	 
+	 
+	 }
+	 
+	
+	
+	</script>
+	
+
+		<div id ="gID1" class="gallery">
+			<a target="_blank" href="img_fjords.jpg"> <img
+				src="img_fjords.jpg" alt="Trolltunga Norway" width="300"
+				height="200"></a>
+			<div id= "gID1n" class="desc">Add a description of the image here</div>
+		</div>
+		
+		
+</body>
+</html>
