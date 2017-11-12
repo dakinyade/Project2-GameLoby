@@ -1,0 +1,4 @@
+Assumptions:
+++Assuming the Game categories and Game details were not on differnt URL's, data would have been fetched easily, we wont be needing to overload the page with too many records and making many calls to the JSON server just to map a game categery with the game details. Here, different SQL statments would have been approriate.
+
+++ Assuming the records were loaded from the Database the webpage performace would be increase.
